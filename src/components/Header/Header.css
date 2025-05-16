@@ -1,0 +1,70 @@
+nav { 
+  padding: 2rem 4rem;
+  display: flex;
+  gap: 3rem;
+  justify-content: center;
+}
+nav a.active {
+    text-decoration: underline;
+}
+
+nav a {
+    margin-right: 10px;
+  position: relative;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  text-decoration: none;
+  color: #ffae00; 
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.5rem 0;
+  transition: all 0.4s ease;
+  overflow: hidden;
+}
+
+nav a::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 2px;
+  width: 0%;
+  background: linear-gradient(90deg, #f7bd00, #161616);
+  transition: width 0.4s ease;
+}
+
+nav a:hover {
+  color: #fdf6e3;
+  letter-spacing: 0.15em;
+  text-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
+}
+
+nav a:hover::before {
+  width: 100%;
+}
+
+nav a::after {
+  content: attr(data-hover);
+  position: absolute;
+  top: -2rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  font-size: 0.75rem;
+  color: #f4e8c1;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 0.35rem 0.6rem;
+  border-radius: 6px;
+  opacity: 0;
+  white-space: nowrap;
+  pointer-events: none;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+  transition: all 0.4s ease;
+}
+
+nav a:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
