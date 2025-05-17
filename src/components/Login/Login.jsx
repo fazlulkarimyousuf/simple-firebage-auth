@@ -1,5 +1,6 @@
 import React from 'react';
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import {auth} from '../../Firebase/Firebase.init';
 const Login = () => {
 
   const provider = new GoogleAuthProvider();
@@ -7,14 +8,14 @@ const Login = () => {
   const handleGoogleLogin= () => {
     console.log('Google login clicked');
 
-    signInWithPopup()
+    signInWithPopup(auth, provider)
     .then(result => {
       console.log(result);
       
     })     
     .catch(error => {
-      console.error(error);
-    })
+  console.error('Google Sign-In Error:', error);
+});
   }
     return (
         <div>
